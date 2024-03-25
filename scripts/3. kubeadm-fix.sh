@@ -1,7 +1,6 @@
 sudo modprobe br_netfilter
 sudo sysctl -w net.ipv4.ip_forward=1
 
-
 # after install kube
 
 mkdir $HOME/.kube 
