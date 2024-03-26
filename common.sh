@@ -36,16 +36,14 @@ sudo mkdir -p /opt/cni/bin
 
 sudo tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.1.tgz
 
-
 sudo mkdir /etc/containerd
 containerd config default | sudo tee /etc/containerd/config.toml
+sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
 
 sudo curl -L https://raw.githubusercontent.com/containerd/containerd/main/containerd.service -o /etc/systemd/system/containerd.service
 
 sudo systemctl daemon-reload
 sudo systemctl enable --now containerd
-
-sudo systemctl status containerd
 
 # 
 #   2. Install Kubelet, Kubeadm, Kubectl

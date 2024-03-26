@@ -1,7 +1,7 @@
 sudo modprobe br_netfilter
 sudo sysctl -w net.ipv4.ip_forward=1
 
-# after install kube
+# after instasudo systemctl restart containerdll kube
 
 mkdir $HOME/.kube 
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
