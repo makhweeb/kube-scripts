@@ -71,8 +71,7 @@ mkdir -p "$HOME"/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown "$(id -u)":"$(id -g)" "$HOME"/.kube/config
 
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/manifests/tigera-operator.yaml
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/manifests/custom-resources.yaml
+kubectl apply -f https://github.com/coreos/flannel/raw/master/Documentation/kube-flannel.yml
 
 # watch kubectl get pods -n calico-system
 
